@@ -78,5 +78,5 @@ while True:
     if k == 32:
         break
 
-cv2.destroyAllWindows()                                     # since we exited the loop above, end the script.
+cv2.destroyAllWindows()
 felv.release()

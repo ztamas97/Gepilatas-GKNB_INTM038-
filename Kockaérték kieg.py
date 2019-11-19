@@ -57,10 +57,10 @@ while True:
 # SZÜRKEÁRMYALATOSKÉP
     gray = cv2.cvtColor(im,cv2.COLOR_BGR2GRAY)
     blur = cv2.GaussianBlur(gray,(5, 5),0)
-    ret,thresh = cv2.threshold(blur,100,200,cv2.THRESH_BINARY)
-    _, contours = cv2.findContours(thresh,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
+    thresh = cv2.adaptiveThreshold(blur,255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C,cv2.THRESH_BINARY,13,3)
+    _, contours = cv2.findContours(thresh,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_NONE)
     for (i, c) in enumerate(contours):
-        print(len(c))
+        kockak=len(c)
     
 #képernyőre való kijelzés
     cv2.imshow("Kocka ertek szam", im_with_keypoints)
